@@ -1,0 +1,80 @@
+1. Write an algorithm to find a number is palindrome or not.
+
+Step 1 : Start
+
+Step 2 : Declare Integer variables num1,num2,num3,num4
+
+Step 3 : Read the input into num1and store num1 in num4
+
+Step 4 : Initialize num2 as 0
+
+Step 5 : while num1!=0 go to step 6 else go to step 9
+
+Step 6 : num3=num1%10 and num1=num1/10
+
+Step 7 : num2=num2*10+num3
+
+Step 8 : go to step 5
+
+Step 9: if num2==num4 print It is palindrome else print It is not palindrome
+
+Step 10 : Stop
+
+
+
+2. Write an algorithm to check anagrams for user entered input.
+
+Step 1 : Start
+
+Step 2 : Declare two String variables str1,str2
+
+Step 3 : Read two Strings str1,str2
+
+Step 4 : Take String 1 and take each character from the string 1 and check whether the character is present in str2 if present remove it from str2 else if the character is not present go to step 6
+
+Step 5 : After reaching the last character of the str1 ,the length of the str2 ,if it is Greater than 0 go to step 6 else go to step 7 
+
+Step 6 : print String is not an anagram and go to Step 8
+
+
+Step 7 : print String is an anagram
+
+Step 8 : Stop
+
+
+3. Write an algorithm for binary search.
+
+Step 1 : Start
+
+Step 2  : Take array of N integer elements in sorted order and Take another variable n1 to search 
+
+Step 3  : if size of the array is 1 check the element and if the element is not n1 then go to step 5 else go to step 6,else Divide  it into two half’s and check the mid element if the mid element is desired element n1 then go to step 6 
+
+Step 4 : if n1 <mid element take the first half and go to step 3 else take the second half and go to step 3
+
+Step 5 : print Element not  found and go to step 8
+
+Step 6 :  print Element found go to step 8
+
+Step 7 : Exit
+
+
+
+
+4 . Application for online Exam 
+
+
+Step 1 : Start
+
+Step 2 : Go to the website of the desired exam
+
+Step 3 : Enter into online exam registration form part of the website
+
+Step 4 : Enter the details required to fill the form
+
+Step 5 : Make online payments for the application form and press the submit button
+
+Step 6: Download the application
+
+Step 7 : Stop
+
