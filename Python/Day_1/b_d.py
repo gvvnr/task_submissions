@@ -1,3 +1,6 @@
+'''
+#Write a script to convert binary to decimal number 
+'''
 import math
 binary = input("::")
 print(binary)

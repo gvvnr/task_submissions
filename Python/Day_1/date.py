@@ -1,3 +1,6 @@
+'''
+#Write a script to find if the given date is from leap year or not. Input format: dd-mm-yyyy Output format: leap year (or) not a leap year
+'''
 print("Enter the Date:")
 d1=input();
 print(d1);

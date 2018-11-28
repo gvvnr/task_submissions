@@ -1,3 +1,6 @@
+'''
+Given a string seperate name and value and store it in dictionary and print the maximum key value pair
+'''
 x="sandeep&100$hemanth&0$vamsi&15";
 div=[];
 div=x.split("$");
