@@ -1,8 +1,13 @@
+'''
+Given a string, create a dictionary with characters as keys and count(frequency) of each character as value. 
+'''
 str=input("Enter the Input string :");
 dict={};
-for i in range(len(str)):
+for i in str:
 	if i in dict:
-		dict[str[i]]=dict[i]+1;
+		print(i);
+		dict[i]=dict[i]+1;
 	else:
-		dict[str[i]]=1;
+		print(i);
+		dict[i]=1;
 print(dict);

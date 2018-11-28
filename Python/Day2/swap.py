@@ -1,3 +1,6 @@
+'''
+#Given a dictionary, invert the dictionary with values to keys and keys to values
+'''
 Dict = {1: 'Geeks', 2: 'For',  
         3:{'A' : 'Welcome', 'B' : 'To', 'C' : 'Geeks'}} 
   
