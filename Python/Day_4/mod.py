@@ -1,16 +1,19 @@
+import csv
 def file_copying():
-   f=open("Sample.csv","r");
-   f1=open("desired.csv","a");
-   data=f.readlines();
-   for line in data:
-       words=line.split(",");
-       count=0
-       st="";
-       for word in words:
-                if count%2!=0:
-                    st=st+word+",";
-                count=count+1;
-       f1.write(st+"\n");
-       print();
-   f.close();
-   f1.close();
+    newfile=open('desired.csv','a') 
+    with open('Sample.csv') as csvfile:
+       reader = csv.DictReader(csvfile)
+       field=reader.fieldnames
+       for i in range(len(field)):
+         if i%2!=0:
+           newfile.write(field[i]+",")
+       newfile.write("\n")
+       for row in reader:
+         for i in range(len(row)):
+            if i%2!=0:
+              newfile.write(row[field[i]]+",")
+         newfile.write("\n")
+         print()
+       newfile.close()
+
+

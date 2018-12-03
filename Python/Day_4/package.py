@@ -7,7 +7,7 @@ import sys
 def main(argument):
 
        switcher = { 
-        "vamsi": mod.file_copying(), 
+        "modify_data": mod.file_copying(), 
     } 
   
 
