@@ -5,8 +5,11 @@ Take a command line argument and pass it to a function  and through that functio
 import mod
 import sys
 def main(argument):
-   if argument=='vamsi':
-     mod.file_copying()
+
+       switcher = { 
+        "vamsi": mod.file_copying(), 
+    } 
+  
 
 if __name__=="__main__":
     argument=str(sys.argv[1])
