@@ -1,0 +1,19 @@
+{
+"student" :
+[{"name":"vamsi",
+"age":23,
+"address":"JNTU",
+"blood-group":"O+"
+},
+{"name":"vamsi1",
+"age":24,
+"address":"JNTU1",
+"blood-group":"B+"
+},
+{"name":"vamsi2",
+"age":22,
+"address":"JNTU2",
+"blood-group":"O-"
+}
+]
+}
