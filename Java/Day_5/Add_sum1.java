@@ -8,6 +8,7 @@ import java.util.Scanner;
 class Add_sum1{
         public static void main(String args[]){
                  Scanner sc=new Scanner(System.in);
+                 System.out.println("Enter the Input N for printing series upto N numbers :");
                  int max=sc.nextInt();
                  int num=1,add=1,i=0;
                      while(i<max){
