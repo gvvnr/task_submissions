@@ -16,6 +16,6 @@ if __name__=='__main__':
     raise Invalid
   else:
     print("Eligible")
- except:
-    print(sys.exc_info()[0])
+ except Invalid:
+    print("Not Elgible")
    																																																						
