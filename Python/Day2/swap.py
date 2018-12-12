@@ -16,6 +16,6 @@ for key,value in zip(List,List1):
 	Dict[str(value)]=str(key);
 
 for i in Dict:
-	print("Modified Key :"+i+" :Modified value :"+Dict[i]);
+	print("Modified Key is :"+i+" :Modified value is :"+Dict[i]);
 
 	

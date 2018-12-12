@@ -3,10 +3,8 @@
 '''
 print("Enter the Date:")
 d1=input();
-print(d1);
 x=[]
 x=d1.split("-")
-print(int(x[2]))
 day=int(x[0])
 month=int(x[1])
 year=int(x[2])
@@ -16,9 +14,9 @@ feb=0;
 def leap():
 	if year%4==0:
 		feb=1
-		print("It is leap year");
+		print("Given date is leap year");
 	else:
-		print("No it isn't leap year");
+		print("Given date is not leap year");
 
 if month==2 and feb==1 and day>=1 and day<=29:
 	print("Given date is valid:");

@@ -2,8 +2,7 @@
 #Write a script to convert binary to decimal number 
 '''
 import math
-binary = input("::")
-print(binary)
+binary = input("Enter the binary digit to convert into decimal :")
 i_binary = int(float(binary))
 f_binary=i_binary
 i=0
@@ -13,9 +12,7 @@ while i_binary!=0:
 	i_binary=int(i_binary/10);
 	sum=sum+(s1*(math.pow(2, i)));
 	i=i+1;
-print(sum);
 xx1=float(binary)-int(float(binary));
-print(str(xx1))
 st=str(xx1);
 count=0
 j=-1

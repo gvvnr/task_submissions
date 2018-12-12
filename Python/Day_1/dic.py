@@ -14,5 +14,4 @@ for i in div:
 	if int(is_max)>int(max):
 	   max=is_max;
 	   max_key=name[0];
-print("Max value is for:");
 print("Max key is  "+max_key+" and Max_Value of "+max_key+" is:"+dict[max_key]);
