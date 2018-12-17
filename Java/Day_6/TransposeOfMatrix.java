@@ -35,7 +35,7 @@ public class TransposeOfMatrix {
 		
 	}
 	/*
-	 * Transpose of matrix
+	 * performing transpose of matrix operation
 	 */
 	public void transposeOfMatrix(){
 		System.out.println("Transpose of the given matrix is");
