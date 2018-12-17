@@ -1,5 +1,5 @@
 /*
-Write a java program to print the following pattern using for loop
+Write a java program to print the following pattern using while loop
 Input n = 3
 *****
 *
@@ -13,24 +13,32 @@ Input n = 3
 
 */
 import java.util.Scanner;
-class Pattern{
+class Pattern1{
           public static void main(String args[]){
                   Scanner sc=new Scanner(System.in);
-                  System.out.println("Enter the Input Number to print Pattern:");
+                  System.out.println("Enter the Input number to print pattern:");
                   int num=sc.nextInt();
-                  for(int index=1;index<=num;index++){
-                             for(int repeat=0;repeat<index*5;repeat++){
+                  int index=1;
+                  while(index<=num){
+                             int repeat=0;
+                             while(repeat<index*5){
                              System.out.print("*");
+                             repeat++;
                              }
                              System.out.println();
-                             for(int mid=0;mid<index;mid++){
+                             int mid=0;
+                             while(mid<index){
                              System.out.print("*");
+                             mid++;
                              }
                              System.out.println();
-                             for(int repeat=0;repeat<index*5;repeat++){
+                             repeat=0;
+                             while(repeat<index*5){
                              System.out.print("*");
+                             repeat++;
                              }
                              System.out.println();
+                  index++;
                   }
 
           }
