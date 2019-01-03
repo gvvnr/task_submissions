@@ -13,154 +13,165 @@ import java.util.*;
  *
  * 
  *  */
-public class Student {
+ class Student {
 	String id;
 	String name;
 	Scanner sc;
 	/*
-	 * Initialized the constructor 
+	 * Initialized the constructor and reading id and name of student 
 	 */
-	Student(){
+	Student(String id, String name){
 		sc=new Scanner(System.in);
+		this.id=id;
+		this.name=name;
 	}
-	/*
-	 * reading id and name of student
-	 */
-	public void studentDetails(){
-		System.out.println("Enter the id of the student :");
-		id=sc.next();
-		System.out.println("Enter the name of the student :");
-		name=sc.next();		
+	int start(int date, int month,int year){
+		DateOfBirth dob=new DateOfBirth();
+		int days=0;
+		if(dob.validate(date,month,year)==true){
+			int number=year/100;
+			int totYears=number;
+			int leap=0;
+			if(year>=400){
+				leap=(year/400);
+				number-=leap;
+			}
+			//System.out.println(number);
+			days=((number*76*365)+(number*24*366))+(((leap)*75*365)+(leap*25*366));
+			year=year-(totYears*100);
+			leap=(year/400);
+			days+=(leap*366);
+			year=year-leap;
+			days=year*365;
+			month=dob.calculateDays(month,year);
+			return date+month+days;
+		}
+		return 0;
 		
 	}
 	class DateOfBirth{
-		String dob;
+		
 		/*
-		 * reading date of birth of student
+		 * Below method validates the date and returns true if the date is valid else return false
 		 */
-		public void studentDOB(){
-			studentDetails();			
-			System.out.println("Enter the Date of Birth of the student in DD/MM/YYYY format :");
-			dob=sc.next();
+		public int calculateDays(int month,int year){
+			int days=0;
+           int monthCount=1;
+			while(monthCount<month){
+				if(monthCount==2 && year%4==0){
+					days+=29;
+				}
+					
+				else if(monthCount==2 && year%4!=0)
+					days+=28;
+				else if(monthCount<8 && monthCount%2==1){
+					days+=31;
+				}
+				
+				else if(monthCount<8 && monthCount%2==0 ){
+					days+=30;
+				}
+					
+				else if(monthCount>=8 && monthCount%2==0){
+					days+=31;
+					
+				}
+					
+				else if(monthCount>=8 && monthCount%2==1){
+					days+=30;
+				}
+					
+				++monthCount;
+			}
+
+			return days;
+		}
+		
+		public boolean validate(int day, int month, int year) {
+			int feb=0;
+			if(year%4==0){
+				feb=1;
+			}
+			if( month==2 && feb==1 && day>=1 && day<=29){
+
+				return true;
+			}
+           
+			else if(month==2 && feb==0 && day>=1 && day<=28){
+				return true;
+				
+			}
+			else if(month<8 && month%2==1 && day>=1 && day<=31){
+				return true;	
+			}
+			else if( month<8 && month%2==0 && day>=1 && day<=30 && month!=2){
+				return true;	
+			}
+			else if( month>=8 && month%2==0 && day>=1 && day<=31 && month<=12){
+				return true;
+			}
+			else if( month>8 && month%2==1 && day>=1 && day<=30 && month<=12){
+				
+				return true;
+			}
+            else{
+            	return false;
+            } 
 			
-		}
-		public String getId(){
-			return Student.this.id;
-		}
-		public String getDOB(){
-			return this.dob;
+			
 		}
 		
 	}
+	
 
 	public static void main(String args[]){
-		Student.DateOfBirth student1=new Student().new DateOfBirth();
-		student1.studentDOB();
-		Student.DateOfBirth student2=new Student().new DateOfBirth();
-		student2.studentDOB();
-		/*
-		 * Getting date of birth of two students
-		 */
-		String date1[]=student1.getDOB().split("/");
-		int date011=Integer.parseInt(date1[0]);
-		int month1=Integer.parseInt(date1[1]);
-		int year1=Integer.parseInt(date1[2]);
-		String date2[]=student2.getDOB().split("/");
-		int date012=Integer.parseInt(date2[0]);
-		int month2=Integer.parseInt(date2[1]);
-		int year2=Integer.parseInt(date2[2]);
-		int days=0;
-		/*
-		 * Calculating difference between two dates
-		 */
-		if(year1==year2 && month1==month2){
-			date012=date011-date012;
-			if(date012<0)
-			    System.out.println("No of days differences between two dates is :"+-date012);
-			else
-				System.out.println("No of days differences between two dates is :"+date012);
-		}
-		if(year1>year2){
-			int temp=year2;
-			year2=year1;
-			year1=temp;
-			temp=date011;
-			date011=date012;
-			date012=temp;
-			temp=month1;
-			month1=month2;
-			month2=temp;
-		}
-		if(year1<year2){
-			int i=year1+1;
-			for(;i<year2;i++){
-				if(i%4==0)
-					days+=366;
-				else
-					days+=365;
-					
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the id of first student :");
+		String id=sc.next();
+		System.out.println("Enter the name of first student :");
+		String name=sc.next();		
+		Student student1=new Student(id,name);
+		System.out.println("Enter the Date of first students date of birth :");
+		int date=sc.nextInt();
+		System.out.println("Enter the month of the students date of birth :");
+		int month=sc.nextInt();
+		System.out.println("Enter the year of the students date of birth :");
+		int year=sc.nextInt();
+		int student1Days=student1.start(date, month, year),student2Days;
+		if(student1Days!=0){
+			Student student2=new Student(id,name);
+			System.out.println("Enter the id of second student :");
+			id=sc.next();
+			System.out.println("Enter the name of second student :");
+			name=sc.next();
+			System.out.println("Enter the Date of second students date of birth :");
+			date=sc.nextInt();
+			System.out.println("Enter the month of second students date of birth :");
+			month=sc.nextInt();
+			System.out.println("Enter the year of second students date of birth :");
+			year=sc.nextInt();
+			student2Days=student2.start(date, month, year);
+			if(student2Days!=0){
+				if(student1Days>student2Days){
+					System.out.println("No of days difference between two students date of birth is :"+(student1Days-student2Days));
+				}
+				else{
+					System.out.println("No of days difference between two students date of birth is :"+(student2Days-student1Days));
+				}
 			}
-			int month=month1+1;
-			while(month<13){
-				if(month==2 && i%4==0)
-					days+=29;
-				else if(month==2 && i%4!=0)
-					days+=28;
-				else if(month<8 && month%2==1)
-					days+=31;
-				else if(month<8 && month%2==0)
-					days+=30;
-				else if(month>=8 && month%2==0)
-					days+=31;
-				else if(month>=8 && month%2==1)
-					days+=30;
-				++month;
+			else{
+				System.out.println("Date of birth of second student you entered is invalid so you are exited :");
 			}
-			if(month1==2 && i%4==0)
-				days+=29-date011;
-			else if(month1==2 && i%4!=0)
-				days+=28-date011;
-			else if(month1<8 && month1%2==1)
-				days+=31-date011;
-			else if(month1<8 && month1%2==0)
-				days+=30-date011;
-			else if(month1>=8 && month1%2==0)
-				days+=31-date011;
-			else if(month1>=8 && month1%2==1)
-				days+=30-date011;
-			month=1;
-			while(month!=month2){
-				if(month==2 && i%4==0)
-					days+=29;
-				else if(month==2 && i%4!=0)
-					days+=28;
-				else if(month<8 && month%2==1)
-					days+=31;
-				else if(month<8 && month%2==0)
-					days+=30;
-				else if(month>=8 && month%2==0)
-					days+=31;
-				else if(month>=8 && month%2==1)
-					days+=30;
-				++month;
-			}
-			if(month2==2 && year2%4==0)
-				days+=29-date012;
-			else if(month2==2 && year2%4!=0)
-				days+=date012;
-			else if(month2<8 && month2%2==1)
-				days+=date012;
-			else if(month2<8 && month2%2==0)
-				days+=date012;
-			else if(month2>=8 && month2%2==0)
-				days+=date012;
-			else if(month2>=8 && month2%2==1)
-				days+=date012;
-			
-			System.out.println("No of days difference between two Date of Births is  :"+days);
-			
-			
+
 		}
+		else{
+			System.out.println("Date of birth of first student you entered is invalid so you are exited :");
+
+		}
+		
+
+
 		
 	}
 }
+
