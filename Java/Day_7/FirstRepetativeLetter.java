@@ -46,7 +46,7 @@ public class FirstRepetativeLetter {
 			System.out.println(c);
 		}
 		else{
-			System.out.println("Doesnot exist :");
+		System.out.println("repetitive letter doesnot exist :");
 		}
 		
 	}
