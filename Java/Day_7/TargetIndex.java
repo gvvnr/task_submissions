@@ -51,11 +51,9 @@ public class TargetIndex {
 		int element=sc.nextInt();
 		int i=0;
 		for(;i<size;i++){
-			if(a[i]>element){
-				return i-1;
-			}
-			else if(a[i]==element)
+			if(a[i]>=element){
 				return i;
+			}
 		}
 		return i-1;
 	}
@@ -70,3 +68,4 @@ public class TargetIndex {
 	}
 
 }
+
