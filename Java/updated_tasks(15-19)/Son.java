@@ -19,53 +19,54 @@ import java.util.Scanner;
  */
 abstract class Parent{
 	Scanner sc;
-	String propertyName;
-	String totalValue;
-	char check;
+	float totalValue;
+	float car;
+	float house;
+	float land;
+	float gold;
+	float parentPropertyValues;
 	Parent(){
 		sc=new Scanner(System.in);
-		propertyName="";
-		totalValue="";
 	}
 	/*
-	 * In below method we add the properties and values of the particular parent
+	 * In below method we add and values to the particular parent properties
 	 */
 	public void propertyDetails(){
-		System.out.println("Enter any character other than Y to add the property if exist :");
-		check=sc.next().charAt(0);
-		while(check!='Y'){
-			System.out.println("Enter the property name :");
-			propertyName=propertyName+""+sc.next()+" ";
-			System.out.println("Enter the value of the property :");
-			totalValue=totalValue+sc.next()+" ";
-			System.out.println("Enter any character other than Y to add the property if exist :");
-			check=sc.next().charAt(0);
-		}
-		
+			System.out.println("Enter the value of Car :");
+			car=sc.nextFloat();
+			System.out.println("Enter the value of house :");
+			house=sc.nextFloat();
+			System.out.println("Enter the value of land :");
+			land=sc.nextFloat();
+			System.out.println("Enter the value of gold :");
+		    gold=sc.nextFloat();
+		    parentPropertyValues=car+house+land+gold;
 	}
 	/*
 	 * Below method is abstract method which does not contain body only the class which extends the Parent class
 	 * and if it is not abstract then body will be implemented else the extended class and method is treated as abstract and the class
 	 * which extends the particular class will follow the same scenario
 	 */
-	abstract int calculatePropertyValue();
+	abstract float calculatePropertyValue(float bikeCost,float carCost);
 }
  public class Son extends Parent{
 	int propertySum;
     //Son class extends the parent class and the total value is calculated and printed
-	public int calculatePropertyValue() {
-		String[] total=totalValue.split(" ");
-		for(String val: total){
-			propertySum+=Integer.parseInt(val);
-		}
-		return propertySum;
+	public float calculatePropertyValue(float bikeCost,float carCost) {
+		
+		return parentPropertyValues+bikeCost+carCost;
 		
 	}
 	
 	public static void main(String args []){
+		Scanner sc=new Scanner(System.in);
 		Son son=new Son();
+		System.out.println("Enter the value of sons bike :");
+        float bikeCost=sc.nextFloat();
+		System.out.println("Enter the value of sons car :");
+        float carCost=sc.nextFloat();
 		son.propertyDetails();
-		System.out.println("Calculated total property value is :"+son.calculatePropertyValue());
+		System.out.println("Calculated total property value  is :"+son.calculatePropertyValue(bikeCost,carCost));
 		
 		
 
