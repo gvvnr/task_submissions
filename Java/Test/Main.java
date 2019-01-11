@@ -11,6 +11,9 @@ Now you have do the Execution for Honda and MarutiSuzike
 
 
 abstract class Factory{
+
+	int noOfToolsRequired;
+	String typeOfManufacture;
 	public abstract void manufacturedFor(String type);
 }
 abstract class Vehicle extends Factory{
@@ -18,8 +21,6 @@ abstract class Vehicle extends Factory{
 }
 class Honda extends Vehicle{
 	int gears;
-	int noOfToolsRequired;
-	String typeOfManufacture;
 	String type;
 	public void noOfGears(int gears) {
 		this.gears=gears;
