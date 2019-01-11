@@ -40,8 +40,6 @@ class Honda extends Vehicle{
 }
 class MaruthiSuziki extends Vehicle{
 	int gears;
-	int noOfToolsRequired;
-	String typeOfManufacture;
 	String type;
 
 	public void noOfGears(int gears) {
