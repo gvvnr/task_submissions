@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My first html app</title>
+</head>
+<body>
+<form name="myForm">
+<fieldset >
+<legend align="center">signUp form</legend>
+<table>
+<tr>
+<td>First Name :</td>
+<td><input type="text" name="firstname"  placeholder="Enter first Name"></td>
+</tr>
+<tr>
+<td>EMail Id :</td>
+<td><input type="text" name="EmailId"  placeholder="Enter EmailID"></td></tr>
+<tr>
+<td>Enter password :</td>
+<td><input type="password" name="password"  placeholder="Enter password" ></td>
+</tr>
+<tr>
+<td>re-enter password :</td>
+<td><input type="password" name="checkpassword"  placeholder="Re Enter the password"></td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<button  onclick="myFunction()">signUp</button>
+</td>
+</tr>
+</table>
+</fieldset>
+</form>
+<script>
+function myFunction() {
+  var firstname = document.forms["myForm"]["firstname"].value;
+  var emailID=document.forms["myForm"]["EmailId"].value;
+ var password=document.forms["myForm"]["password"].value;
+  var checkPassword=document.forms["myForm"]["checkpassword"].value;
+ 
+ if(password.match(/[a-z][1-9][! | @  | # | $ | % | ^ | & | * | ( | ) | _ \d]/ig)){
+ alert("password matched :");
+ }
+ alert("Sorry");
+ 
+ 
+
+}
+</script>
+</body>
+</html>
