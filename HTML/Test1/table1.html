@@ -1,0 +1,100 @@
+
+<html>
+<!––
+It is extension for above question
+What ever input is given by comma separated that cells should be filled with colour. If the table does not
+contains that value, give an alert “table does not contains given values”
+Example
+if input is 1,3,5,12, 13, 14.
+Output should be “ table does not contain ”12,13,14” values"
+
+––>
+  <head>
+  	<style type="text/css">
+table {
+  border-collapse: collapse;
+    width: 40%;
+  height: 40%;
+}
+
+table, td, th {
+  border: 1px solid black;
+}
+td{
+	color: blue;
+}
+<
+  	</style>
+  </head>
+    <body>
+
+
+    	<table id="dynamicTable">
+  <tr>
+    <td>1</td>
+    <td>2</td> 
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>5</td> 
+    <td>6</td>
+  </tr>
+    <tr>
+    <td>7</td>
+    <td>8</td> 
+    <td>9</td>
+  </tr>
+    	</table>
+    	<br>
+    	<br>
+  	
+  <input type="text" name="lastname" id="myTable">
+  <br><br>
+  <input type="submit" value="Submit" onclick="check()">
+ <p id="demo"></p>
+ 
+
+      
+
+    	<script type="text/javascript">
+    		function check(){
+    			//alert(document.getElementById("myTable").value)
+    			 var Row = document.getElementById("dynamicTable");
+                 var Cells = Row.getElementsByTagName("td");
+                 var count=0;
+                 var x=document.getElementById("myTable").value;
+                 var values=x.split(",");
+                 var notContain="";
+                 for(var i=0;i<Cells.length;i++){
+                  for(var j=0;j<values.length;j++){
+                      if(Cells[i].innerHTML.includes(values[j])){
+                           count=1;
+                           Cells[i].style.backgroundColor = randomColor();
+                   }
+                  }
+
+                   
+
+               }
+               for(var j=0;j<values.length;j++){
+                if(values[j]<0 || values[j]>=9){
+                        notContain+=values[j]+" ";
+                }
+               }
+               if(notContain.length>0){
+               	alert("value "+notContain+"does not exist")
+               }
+   		}
+      function randomColor(){
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+ </script>
+
+	</body>
+</html>

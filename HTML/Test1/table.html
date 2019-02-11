@@ -1,0 +1,89 @@
+<!––
+2. Create a table contains 3 Rows X 3 Columns. The table contains the values of
+1 2 3
+4 5 6
+7 8 9
+each cell contains each value.
+Given a cell value as an input and clicks submit. If the table contains the input value, the colour
+of cell should changes, if not should display “Table does not contains given input value”.
+
+
+––> 
+<html>
+  <head>
+  	<style type="text/css">
+  	table {
+  border-collapse: collapse;
+  width: 40%;
+  height: 40%;
+}
+
+table, td, th {
+  border: 1px solid black;
+}
+
+
+  	</style>
+  </head>
+    <body>
+
+
+    	<table id="dynamicTable">
+  <tr>
+    <td>1</td>
+    <td>2</td> 
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>5</td> 
+    <td>6</td>
+  </tr>
+    <tr>
+    <td>7</td>
+    <td>8</td> 
+    <td>9</td>
+  </tr>
+    	</table>
+    	<br>
+    	<br>
+  	
+  <input type="text" name="lastname" id="myTable">
+  <br><br>
+  <input type="submit" value="Submit" onclick="check()">
+ <p id="demo"></p>
+ 
+
+      
+
+    	<script type="text/javascript">
+    		function check(){
+    			//alert(document.getElementById("myTable").value)
+    			 var Row = document.getElementById("dynamicTable");
+                 var Cells = Row.getElementsByTagName("td");
+                 var count=0;
+                 var x=document.getElementById("myTable").value;
+                 for(var i=0;i<Cells.length;i++){
+
+                   if(Cells[i].innerHTML.includes(x)){
+                           count=1;
+                           Cells[i].style.backgroundColor = randomColor();
+                   }
+
+               }
+               if(count!=1){
+               	alert("value does not exist")
+               }
+   		}
+   		function randomColor(){
+   			var letters = '0123456789ABCDEF';
+   			var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color
+   		}
+ </script>
+
+	</body>
+</html>
