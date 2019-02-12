@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <!--property binidng  -->
+  <input type="text" [value]=item disabled =true>
+  <br>
+  <br>
+  <!-- Two way data binding -->
+<input type="text" [(ngModel)]="modifingValue"  >
+  <br>
+  <br>
+  <span>{{modifingValue}}</span>
+  <br>
+  <br>
+  <!--
+  <input type="text" value={{textValue}}>
+  <input type="submit" value="addItem" (click)="addItem()">-->
+   <p *ngFor="let fruit of fruits">
+     <input type="submit" value={{fruit}} (click)="fruitButton(fruit)">
+
+   </p>
+  <br>
+  <br>
+  <table align="center" id="tableData">
+    <tr>
+      <th>name</th>
+      <th>id</th>
+      <th>phone</th>
+    </tr>
+    <tr>
+      <td>{{students.name}}</td>
+      <td>{{students.id}}</td>
+      <td>{{students.phone}}</td>
+    </tr>
+  </table>
+
+</div>
+
+
+<div id="displayData" align="center">
+{{fruitValue}}
+</div>
+
