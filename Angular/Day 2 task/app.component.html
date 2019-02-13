@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <table align="center">
+    <tr>
+      <th>Name</th>
+      <th>Id</th>
+      <th>phone</th>
+    </tr>
+
+
+      <tr *ngFor="let user of userTestStatus">
+      <td><button type="button" (click)="sendData(user)">{{user.name}}</button></td>
+      <td>{{user.id}}</td>
+      <td>{{user.phone}}</td>
+      </tr>
+  </table>
+
+<app-child [currentData]='messageEvent'></app-child>
+</div>
+
+
