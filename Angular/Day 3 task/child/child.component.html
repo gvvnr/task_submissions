@@ -1,0 +1,17 @@
+<div>
+  You are in child component
+</div>
+
+<div *ngIf="currentData">
+  <table align="center" >
+
+    <tr>
+      <td >{{currentData.name | uppercase}} </td>
+      <td>  {{currentData.id}}</td>
+      <td>  {{currentData.phone}} </td>
+      <button type="button" (click)="deleteRow()">deleteRow</button>
+    </tr>
+  </table>
+
+</div>
+
